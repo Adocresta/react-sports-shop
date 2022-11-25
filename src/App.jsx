@@ -1,13 +1,15 @@
-import React from 'react'
+import React from "react";
+import About from "./components/About/About";
 // Components \\
-import Header from './components/UI/Header'
+import Header from "./components/UI/Header";
 
 const App = () => {
   return (
     <React.Fragment>
-      <Header/>
+      <Header />
+      <About />
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default App
+export default App;

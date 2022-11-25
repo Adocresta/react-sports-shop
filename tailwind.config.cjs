@@ -12,6 +12,9 @@ module.exports = {
       "95px": "95px",
     },
     extend: {
+      backgroundImage: {
+        hero: "url('../assets/hero.jpg')",
+      },
       colors: {
         brightRed: "hsl(12, 88%, 59%)",
         brightRedLight: "hsl(12, 88%, 69%)",
@@ -21,6 +24,9 @@ module.exports = {
         veryDarkBlue: "hsl(233, 12%, 13%)",
         veryPaleRed: "hsl(13, 100%, 96%)",
         veryLightGray: "hsl(0, 0%, 98%)",
+        "martinique-600": "#3a2748",
+        "martinique-400": "#583a6d",
+        "martinique-low-opa-400": "#583a6db4",
       },
       boxShadow: {
         "header-shadow":
