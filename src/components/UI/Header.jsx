@@ -16,13 +16,11 @@ const Header = () => {
       place-content-between items-center h-20 overflow-hidden
       px-6 bg-martinique-600 shadow-header-shadow"
     >
-      <div className="border-4 rounded-3xl">
-        <img
-          className="h-24 w-48 object-cover"
-          src="src/assets/logo.png"
-          alt="Sports Shop"
-        />
-      </div>
+      <img
+        className="h-24 w-48 object-cover"
+        src="src/assets/logo.png"
+        alt="Sports Shop"
+      />
       <div>
         <Button
           onClick={userCartButtonClickHandler}

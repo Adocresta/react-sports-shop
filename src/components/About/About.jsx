@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div
       className="container flex mx-auto bg-hero bg-cover bg-bottom h-80
-      items-center clip-hero"
+      items-center //custom-utilities=> clip polygon clip-c-3"
     >
       <div
         className="container flex bg-martinique-low-opa-400 rounded-2xl

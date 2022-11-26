@@ -8,3 +8,34 @@
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
   }
 }
+
+@layer utilities {
+  * {
+    --tw-clip-polygon: var(--tw-clip-polygon-a), var(--tw-clip-polygon-b),
+      var(--tw-clip-polygon-c), var(--tw-clip-polygon-d);
+    --tw-clip-polygon-a: 0 0;
+    --tw-clip-polygon-b: 100% 0;
+    --tw-clip-polygon-c: 100% 100%;
+    --tw-clip-polygon-d: 0 100%;
+  }
+
+  .clip.polygon.clip-a-3 {
+    --tw-clip-polygon-a: 0 2.25rem;
+  }
+
+  .clip.polygon.clip-b-3 {
+    --tw-clip-polygon-b: 100% 2.25rem;
+  }
+
+  .clip.polygon.clip-c-3 {
+    --tw-clip-polygon-c: 100% calc(100% - 2.25rem);
+  }
+
+  .clip.polygon.clip-d-3 {
+    --tw-clip-polygon-d: 0 calc(100% - 2.25rem);
+  }
+
+  .clip.polygon {
+    clip-path: polygon(var(--tw-clip-polygon));
+  }
+}
