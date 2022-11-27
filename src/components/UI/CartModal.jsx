@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom";
+import { CartContext } from "../../context/cart-context";
 
 // Components
 import Button from "./Button";
@@ -14,6 +15,8 @@ const Backdrop = (props) => {
 };
 
 const ModalOverlay = (props) => {
+  const cartCtx = useContext(CartContext);
+
   return (
     <div
       className="fixed top-1/2 left-1/2 
@@ -22,8 +25,13 @@ const ModalOverlay = (props) => {
    border-martinique-600 border-4 border-dashed"
     >
       <ul>
-        <li>Test item</li>
-        <li>Test item 2</li>
+        {cartCtx.cartItemList.map((item) => {
+          return (
+            <li>
+              {item.title} {item.price * item.amount}
+            </li>
+          );
+        })}
       </ul>
       <Button
         onClick={props.onClose}

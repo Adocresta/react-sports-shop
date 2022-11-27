@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import Button from "./Button";
 import CartModal from "./CartModal";
 
 import logo from "./../../assets/logo.png";
 import CartIcon from "./CartIcon";
+import { CartContext } from "../../context/cart-context";
 
 const Header = () => {
   const [showCart, setShowCart] = useState(false);
-  console.log(showCart);
+  const cartCtx = useContext(CartContext);
 
   const userCartButtonClickHandler = () => {
     setShowCart((prevState) => !prevState);
@@ -31,7 +32,7 @@ const Header = () => {
           </span>
           <span>Your Cart</span>
           <span className="bg-martinique-600 py-1 px-4 rounded-3xl ml-4 font-bold">
-            3
+            {cartCtx.totalNumberofItems}
           </span>
         </Button>
       </div>

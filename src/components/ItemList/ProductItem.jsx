@@ -1,18 +1,31 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { CartContext } from "../../context/cart-context";
 import Button from "../UI/Button";
 
 const ProductItem = (props) => {
   const { title, price, description } = props;
-  // states
+  // states \\
   const [orderAmount, setOrderAmount] = useState();
+  const cartCtx = useContext(CartContext);
 
+  // handlers \\
   const addCartHandler = (e) => {
     e.preventDefault();
-    console.log("submitted");
+
+    // create new object
+    const newItem = {
+      id: title + Math.random().toString(),
+      title: title,
+      price: price,
+      amount: orderAmount,
+    };
+
+    // send the new object to cart
+    cartCtx.onNewItem(newItem);
   };
 
   const inputChangeHandler = (e) => {
-    console.log(e.target.value);
+    setOrderAmount(+e.target.value);
   };
 
   return (
@@ -30,8 +43,9 @@ const ProductItem = (props) => {
             type="number"
             name="amount"
             id="amount"
-            min="0"
+            min="1"
             max="5"
+            required
           />
         </div>
         <Button type="submit">+Add</Button>
