@@ -36,6 +36,7 @@ module.exports = {
         "spin-slow": "spin 1s linear infinite",
         wiggle: "wiggle 1s ease-in-out infinite",
         "app-logo-spin": "app-logo-spin infinite 20s linear",
+        bump: "bump 300ms ease-out",
       },
       keyframes: {
         wiggle: {
@@ -49,6 +50,23 @@ module.exports = {
           },
           to: {
             transform: "rotate(360deg)",
+          },
+        },
+        bump: {
+          "0%": {
+            transform: "scale(1)",
+          },
+          "10%": {
+            transform: "scale(0.9)",
+          },
+          "30%": {
+            transform: "scale(1.1)",
+          },
+          "50%": {
+            transform: "scale(1.15)",
+          },
+          "100%": {
+            transform: "scale(1)",
           },
         },
       },
