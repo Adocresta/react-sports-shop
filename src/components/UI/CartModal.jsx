@@ -27,7 +27,7 @@ const ModalOverlay = (props) => {
       <ul>
         {cartCtx.cartItemList.map((item) => {
           return (
-            <li>
+            <li key={item.id}>
               {item.title} {item.price * item.amount}
             </li>
           );

@@ -3,20 +3,13 @@ import React, { useEffect, useState } from "react";
 export const CartContext = React.createContext({
   newItem: {},
   cartItemList: [],
-  totalNumberofItems: 0,
+  totalNumberofItems: null,
   onNewItem: () => {},
   onDeleteItem: () => {},
 });
 
 const CartContextProvider = (props) => {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: "test1",
-      title: "test",
-      price: 30,
-      amount: 1,
-    },
-  ]);
+  const [cartItems, setCartItems] = useState([]);
 
   const [newItem, setNewItem] = useState(null);
   const [totalNumberofItems, setTotalNumberofItems] = useState(0);
@@ -55,7 +48,7 @@ const CartContextProvider = (props) => {
       total += item.amount;
     });
     setTotalNumberofItems(total);
-  }, [newItem]);
+  }, [newItem, cartItems]);
 
   const deleteItemHandler = (deletedItem) => {
     console.log("deleting...");
