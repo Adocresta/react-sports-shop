@@ -1,6 +1,7 @@
 import React from "react";
 import ProductItem from "./ProductItem";
 
+// mock data \\
 const itemData = [
   {
     id: "m1",

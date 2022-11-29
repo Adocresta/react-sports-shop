@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import { CartContext } from "../../context/cart-context";
-
 // Components
+import UserCart from "../UserCart/UserCart";
 import Button from "./Button";
 
 const Backdrop = (props) => {
@@ -15,24 +14,14 @@ const Backdrop = (props) => {
 };
 
 const ModalOverlay = (props) => {
-  const cartCtx = useContext(CartContext);
-
   return (
     <div
       className="fixed top-1/2 left-1/2 
     -translate-x-1/2 -translate-y-1/2 
-    z-50 max-w-sm overflow-hidden py-6 px-16 bg-slate-600 rounded-2xl
-   border-martinique-600 border-4 border-dashed"
+    z-50 max-w-sm overflow-hidden py-6 px-16 bg-slate-400 rounded-2xl
+   border-martinique-600 border-8 border-dotted flex flex-col justify-center items-center space-y-5"
     >
-      <ul>
-        {cartCtx.cartItemList.map((item) => {
-          return (
-            <li key={item.id}>
-              {item.title} {item.price * item.amount}
-            </li>
-          );
-        })}
-      </ul>
+      <UserCart />
       <Button
         onClick={props.onClose}
         className="bg-slate-800 cursor-pointer hover:bg-slate-400"
@@ -44,9 +33,8 @@ const ModalOverlay = (props) => {
 };
 
 const CartModal = (props) => {
-  // get user cart list
-
   return (
+    // creates portal to render somewhere else rather that where it's called
     <>
       {ReactDOM.createPortal(
         <Backdrop onClose={props.onClose} />,
