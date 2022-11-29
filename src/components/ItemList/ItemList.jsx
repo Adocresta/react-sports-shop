@@ -55,7 +55,7 @@ const ItemList = () => {
   return (
     <div className="container flex flex-col space-y-5 mx-auto items-center justify-center bg-purple-100 -mt-9 h-fit">
       <h2 className="mt-10 text-2xl font-bold">Products</h2>
-      <ul className="">{items}</ul>
+      <ul className="flex flex-col space-y-5">{items}</ul>
     </div>
   );
 };

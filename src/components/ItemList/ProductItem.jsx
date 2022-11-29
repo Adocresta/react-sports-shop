@@ -30,19 +30,37 @@ const ProductItem = (props) => {
   };
 
   return (
-    <li className="container flex justify-around space-x-3 w-[70%] mx-auto">
-      <div className="h-14 w-14 flex items-center justify-center ">
-        <img className="rounded-br-full" src={image} alt={`${title} Image`} />
+    <li
+      className="container h-52 border-2 rounded-3xl overflow-hidden 
+                flex flex-row space-x-5 max-w-2xl mx-auto bg-purple-200"
+    >
+      <div className="w-[20%] flex items-center justify-center">
+        <img
+          className="h-[100%] w-[100%] object-cover"
+          src={image}
+          alt={`${title} Image`}
+        />
       </div>
-      <div className="w-1/2">
-        <h1>{title}</h1>
+      <div className="w-[60%] flex flex-col space-y-5 justify-center">
+        <h1 className="font-bold text-xl border-b border-martinique-600">
+          {title.toUpperCase()}
+        </h1>
         <p>{description}</p>
-        <p>{price}</p>
+        <p className="border w-fit bg-red-300 px-2 py-0.5 text-black font-bold text-base rounded-full">
+          ${price}
+        </p>
       </div>
-      <form onSubmit={addCartHandler} className="flex flex-col">
-        <div>
-          <label htmlFor="amount">Amount:</label>
+      <form
+        onSubmit={addCartHandler}
+        className="relative flex flex-col justify-center items-center w-[20%]"
+      >
+        <div className="flex flex-col items-center space-y-2">
+          <label htmlFor="amount" className="border-b border-martinique-600">
+            Amount
+          </label>
           <input
+            className="w-1/3 text-center bg-martinique-low-opa-400
+            text-white rounded-full"
             onChange={inputChangeHandler}
             type="number"
             name="amount"
@@ -53,7 +71,12 @@ const ProductItem = (props) => {
             required
           />
         </div>
-        <Button type="submit">+Add</Button>
+        <Button
+          type="submit"
+          className="absolute bottom-0 right-0 -rotate-45 translate-x-9 px-9"
+        >
+          +Add
+        </Button>
       </form>
     </li>
   );

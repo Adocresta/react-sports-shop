@@ -16,12 +16,13 @@ const UserCart = () => {
       return (
         <li
           key={item.id}
-          className="flex flex-row space-x-10 cursor-pointer py-1 px-2 bg-slate-500 rounded-md
+          className="flex flex-row justify-between space-x-5 w-full cursor-pointer py-1 px-2 bg-slate-500 rounded-md
           hover:bg-red-600 transition-all"
           onClick={() => deleteItemHandler(item)}
         >
-          <span>
-            {item.amount}x {item.title}
+          <span className="space-x-2">
+            <span className="border-r pr-2 border-white">{item.amount}</span>
+            <span>{item.title}</span>
           </span>
           <span>
             $
@@ -38,9 +39,16 @@ const UserCart = () => {
   }, [cartCtx.deletedItem]);
 
   return (
-    <ul className="text-white">
+    <ul className="flex flex-col text-white items-center justify-center space-y-1 w-60">
       {cart.length > 0 && cart}
-      {cart.length === 0 && <li>No items in the cart</li>}
+      {cart.length === 0 && (
+        <li
+          className="flex flex-row justify-between space-x-5 cursor-pointer py-1 px-2 bg-slate-500 rounded-md
+          hover:bg-red-600 transition-all"
+        >
+          There's nothing in the cart!
+        </li>
+      )}
     </ul>
   );
 };
